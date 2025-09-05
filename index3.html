@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STSMIRS Interactive Workflow</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f9fc;
+    margin: 20px;
+    color: #303030;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #036;
+  }
+  .flowchart {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .step {
+    background: white;
+    border: 2px solid #036;
+    border-radius: 12px;
+    margin: 15px 0;
+    padding: 18px 25px;
+    box-shadow: 0 6px 15px rgba(3, 102, 153, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .step:hover {
+    background-color: #e6f0f9;
+    box-shadow: 0 12px 30px rgba(3, 102, 153, 0.35);
+  }
+  .step h2 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    color: #024a7f;
+  }
+  .step p {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+  }
+  .step.expanded p {
+    max-height: 800px; /* large enough for content */
+    padding-top: 10px;
+  }
+  .arrow {
+    font-size: 24px;
+    color: #036;
+    text-align: center;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>STSMIRS Interactive Workflow Diagram</h1>
+
+<div class="flowchart">
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>1. Secure Tourist Onboarding (Blockchain Digital ID & KYC)</h2>
+    <p>
+      Implementation involves integrating Hyperledger Fabric for blockchain-based identity management,
+      UIDAI Aadhaar API for Indian KYC verification, and Passport OCR APIs for foreigners.
+      Smart contracts handle identity lifecycle including creation, revocation, and consent logging.
+      Design ensures privacy by storing minimal PII off-chain or encrypted on-chain with pointers.
+      Rigorous testing and audits ensure security and regulatory compliance.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>2. Mobile Application Features</h2>
+    <p>
+      Built using Flutter or React Native for cross-platform support.
+      Connects via REST/GraphQL APIs to blockchain and AI modules.
+      Features include digital ID display, panic button triggering live location alerts,
+      geo-fencing notifications integrating Android/iOS APIs and Tile38, itinerary management,
+      and multilingual voice/text emergency communication.
+      Data is encrypted end-to-end; no unencrypted PII is stored on the device.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>3. Geo-Fencing & Location Safety</h2>
+    <p>
+      Combination of client-side geofencing APIs (Android/iOS) and server-side Tile38 geospatial database to
+      enable real-time alerts when tourists enter risky zones.
+      Admin dashboard allows authorities to manage geofence zones dynamically.
+      Real-time data feeds from police, weather, and crowdsourcing enhance risk detection.
+      Privacy ensured by strict consent and blockchain audit of location sharing.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>4. AI-Based Anomaly Detection</h2>
+    <p>
+      Continuous streaming of location and event data feeds machine learning anomaly detection models.
+      Behavioral baselines for each tourist are learned from itineraries and movement history.
+      Alerts are generated for unusual stops, deviations, inactivity, or risky zone recurrence.
+      Admins can adjust model sensitivity per region and profile.
+      Data used for training is anonymized and encrypted; audits prevent algorithmic bias.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>5. Dashboard for Authorities</h2>
+    <p>
+      Developed using ReactJS/Angular for real-time responsive UI.
+      Displays live maps, heatmaps, incident timelines, and secure digital ID lookups.
+      Integrates with police e-FIR systems to automate incident reports.
+      Audits all access and actions via blockchain for legal compliance.
+      Strong SSO and Aadhaar eKYC protect data confidentiality.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>6. IoT Wearables Integration</h2>
+    <p>
+      Use Bluetooth Low Energy (BLE) enabled bands/tags carrying GPS and health sensors.
+      SOS button triggers immediate cloud alerts.
+      MQTT protocol streams device data reliably to backend.
+      Edge gateways support connectivity in remote areas.
+      Access to data tightly controlled and encrypted with blockchain-logged device management.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>7. Multilingual & Accessibility Support</h2>
+    <p>
+      Integration of Sarvam AI or similar Indian-language NLP models.
+      Emergency features support voice/text input in 10+ languages.
+      Text-to-speech and speech-to-text enable accessibility for visually or physically impaired users.
+      UI supports high contrast and large fonts for ease of use.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>8. Data Privacy & Security</h2>
+    <p>
+      Strict adherence to India’s Digital Personal Data Protection Act and IT Act.
+      All communications end-to-end encrypted using AES-256 and RSA/ECC.
+      Role-based zero-trust access controls govern data views.
+      User consents are logged immutably on blockchain.
+      Regular compliance audits performed with Data Protection Officers.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>9. Technology Stack & Deployment</h2>
+    <p>
+      Microservices deployed in Kubernetes clusters enable scaling and rolling updates.
+      API Gateways strictly enforce security policies with JWT/OAuth.
+      Kafka and MQTT brokers facilitate event streaming from devices and app.
+      Monitoring with Prometheus/Grafana and centralized logging using ELK/Loki.
+      Disaster recovery via automated backups distributed regionally.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>10. Implementation Phases</h2>
+    <p>
+      Phase 1: Planning, stakeholder workshops, regulatory clearances.
+      Phase 2: MVP – blockchain testnet, smart contracts, mobile alpha, admin UI.
+      Phase 3: Geo-fencing, AI anomaly integration, e-FIR automation, IoT pilot.
+      Phase 4: Nationwide rollout, iterative improvements, regulatory reporting automation.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>11. Governance & Compliance</h2>
+    <p>
+      Enforced separation of concerns with strict data access policies.
+      Transparent consent tracking.
+      Regular third-party audits for compliance with DPDPA and IT Act.
+      Grievance redressal and appeal mechanisms for tourists.
+    </p>
+  </div>
+  <div class="arrow">⬇️</div>
+
+  <div class="step" tabindex="0" onclick="toggleStep(this)">
+    <h2>12. Sustainability & Social Impact</h2>
+    <p>
+      Self-sovereign portable digital IDs facilitating other e-governance services.
+      Open APIs for partner travel agencies and researchers, subject to privacy control.
+      AI-driven feedback loops optimize policing and emergency readiness.
+      Enhances safety and resilience of tourist destinations.
+    </p>
+  </div>
+</div>
+
+<script>
+function toggleStep(stepElement) {
+  stepElement.classList.toggle('expanded');
+}
+</script>
+
+</body>
+</html>
